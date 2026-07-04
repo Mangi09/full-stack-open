@@ -1,0 +1,55 @@
+{
+  "persons": [
+    {
+      "name": "fmnj",
+      "number": "",
+      "id": "t_iK_pr1-s0"
+    },
+    {
+      "name": "hkefjhkdf",
+      "number": "",
+      "id": "VPmwoq5srkw"
+    },
+    {
+      "name": "nfgjnk,",
+      "number": null,
+      "id": "jTYyl5nbBi8"
+    },
+    {
+      "name": "fuckk off",
+      "number": "",
+      "id": "vPQiYW1chN0"
+    },
+    {
+      "name": "fuck off",
+      "number": 239329,
+      "id": "hhmLTCSZB3w"
+    },
+    {
+      "name": "dfsjjhdjgv",
+      "number": 393905,
+      "id": "oYgn3enEmCg"
+    },
+    {
+      "name": "jhdfsjhdk",
+      "number": "",
+      "id": "waLS_0frloQ"
+    },
+    {
+      "name": "gjfvkjnkjbg",
+      "number": 9230973075,
+      "id": "rctL4UCo6jc"
+    },
+    {
+      "name": "ashok",
+      "number": 0,
+      "id": "rfU4k7Ly_A8"
+    },
+    {
+      "name": "dwihti",
+      "number": "",
+      "id": "xGXUQomGfnI"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
