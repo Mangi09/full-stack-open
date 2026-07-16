@@ -78,6 +78,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState(0)
   const [filters, setFilters] = useState('')
+  console.log(persons)
   const personToShow = persons.filter(person => 
     person.name.toLowerCase().includes(filters.toLowerCase())
   )

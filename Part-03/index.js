@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
-app.use(express.json());
 const morgan = require("morgan");
+const cors = require("cors");
 
+app.use(cors());
+app.use(express.json());
+// app.use(express.static("dist"));
 morgan.token("body", (req, res) => {
   if (req.method == "POST") {
     return JSON.stringify(req.body);
@@ -47,7 +50,9 @@ app.post("/api/persons", (request, response) => {
       error: "content missing",
     });
   }
-  if (!(body.name in persons)) {
+  const exists = persons.some((person) => person.name === body.name);
+
+  if (exists) {
     return response.status(400).json({
       error: "name must be unique",
     });
@@ -62,9 +67,7 @@ app.post("/api/persons", (request, response) => {
   persons = persons.concat(person);
   console.log(person);
 
-  response.status(200).json({
-    message: "person created successfully",
-  });
+  response.status(201).json(person);
 });
 
 app.get("/api/persons", (request, response) => {
@@ -73,8 +76,8 @@ app.get("/api/persons", (request, response) => {
 
 app.get("/api/persons/:id", (request, response) => {
   const id = request.params.id;
-  const person = persons.filter((p) => p.id === id);
-  if (person.length === 0) {
+  const person = persons.find((p) => p.id === id);
+  if (!person) {
     response.status(404).json({
       error: "id not found",
     });
@@ -84,16 +87,16 @@ app.get("/api/persons/:id", (request, response) => {
 
 app.delete("/api/persons/:id", (request, response) => {
   const id = request.params.id;
-  if (!(id in persons)) {
-    return response.status(404).json({
+  console.log(id);
+  const person = persons.find((p) => p.id === id);
+  if (!person) {
+    response.status(404).json({
       error: "id not found",
     });
   }
   persons = persons.filter((p) => p.id !== id);
 
-  response.status(200).json({
-    message: "person deleted successfully",
-  });
+  response.status(204).end();
 });
 
 app.get("/info", (request, response) => {
